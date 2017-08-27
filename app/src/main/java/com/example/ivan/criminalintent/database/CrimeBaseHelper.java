@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.ivan.criminalintent.database.CrimeDbSchema.CrimeTable;
+
 
 /**
  * Created by ivan on 8/27/17.
@@ -20,7 +22,12 @@ public class CrimeBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        sqLiteDatabase.execSQL("create table " + CrimeTable.NAME + "(" +
+            "_id integer primary key autoincrement, " +
+            CrimeTable.Cols.UUID + ", " +
+            CrimeTable.Cols.TITLE + ", " +
+            CrimeTable.Cols.DATE + ", " +
+            CrimeTable.Cols.SOLVED + ");");
     }
 
     @Override
