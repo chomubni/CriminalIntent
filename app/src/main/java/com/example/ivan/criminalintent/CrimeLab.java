@@ -1,6 +1,9 @@
 package com.example.ivan.criminalintent;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.ivan.criminalintent.database.CrimeBaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,7 @@ public class CrimeLab {
 
     private Context mAppContext;
     private List<Crime> mCrimes;
+    private SQLiteDatabase mDatabase;
 
     private static CrimeLab sCrimeLab;
     public static CrimeLab get(Context context){
@@ -24,7 +28,8 @@ public class CrimeLab {
     }
 
     private CrimeLab(Context context){
-        mAppContext = context;
+        mAppContext = context.getApplicationContext();
+        mDatabase = new CrimeBaseHelper(mAppContext).getWritableDatabase();
         mCrimes = new ArrayList<>();
     }
 
