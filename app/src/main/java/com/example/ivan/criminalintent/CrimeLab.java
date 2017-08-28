@@ -16,7 +16,7 @@ import java.util.UUID;
 public class CrimeLab {
 
     private Context mAppContext;
-    private List<Crime> mCrimes;
+
     private SQLiteDatabase mDatabase;
 
     private static CrimeLab sCrimeLab;
@@ -30,23 +30,18 @@ public class CrimeLab {
     private CrimeLab(Context context){
         mAppContext = context.getApplicationContext();
         mDatabase = new CrimeBaseHelper(mAppContext).getWritableDatabase();
-        mCrimes = new ArrayList<>();
+
     }
 
     public List<Crime> getCrimes(){
-        return mCrimes;
+        return new ArrayList<>();
     }
 
     public Crime getCrime(UUID id){
-        for(Crime crime : mCrimes){
-            if(crime.getId().equals(id)){
-                return crime;
-            }
-        }
         return null;
     }
 
     public void addCrime(Crime crime){
-        mCrimes.add(crime);
+
     }
 }
