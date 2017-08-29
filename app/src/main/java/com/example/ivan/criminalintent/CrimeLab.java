@@ -43,7 +43,7 @@ public class CrimeLab {
         CrimeCursorWrapper cursor = queryCrimes(null,null);
         try{
             cursor.moveToFirst();
-            while (cursor.isAfterLast()){
+            while (!cursor.isAfterLast()){
                 crimes.add(cursor.getCrime());
                 cursor.moveToNext();
             }
