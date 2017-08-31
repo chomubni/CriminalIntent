@@ -110,6 +110,7 @@ public class CrimeFragment extends Fragment {
             }
         });
 
+
         final Intent pickContact = new Intent(Intent.ACTION_PICK,
                 ContactsContract.Contacts.CONTENT_URI);
         mSuspectButton = v.findViewById(R.id.crime_suspect);
