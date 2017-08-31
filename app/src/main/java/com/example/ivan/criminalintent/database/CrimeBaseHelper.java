@@ -17,17 +17,18 @@ public class CrimeBaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "crimeBase.db";
 
     public CrimeBaseHelper(Context context) {
-        super(context, DATABASE_NAME,null, VERSION);
+        super(context, DATABASE_NAME, null, VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("create table " + CrimeTable.NAME + "(" +
-            "_id integer primary key autoincrement, " +
-            CrimeTable.Cols.UUID + ", " +
-            CrimeTable.Cols.TITLE + ", " +
-            CrimeTable.Cols.DATE + ", " +
-            CrimeTable.Cols.SOLVED + ");");
+                "_id integer primary key autoincrement, " +
+                CrimeTable.Cols.UUID + ", " +
+                CrimeTable.Cols.TITLE + ", " +
+                CrimeTable.Cols.DATE + ", " +
+                CrimeTable.Cols.SOLVED + ", " +
+                CrimeTable.Cols.SUSPECT + ");");
     }
 
     @Override
