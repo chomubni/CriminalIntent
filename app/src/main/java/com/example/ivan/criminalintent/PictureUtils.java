@@ -31,7 +31,7 @@ public class PictureUtils {
         options.inSampleSize = inSampleSize;
         return BitmapFactory.decodeFile(path,options);
     }
-    
+
     public static Bitmap getScaledBitmap(String path, Activity activity){
         Point size = new Point();
         activity.getWindowManager().getDefaultDisplay().getSize(size);
